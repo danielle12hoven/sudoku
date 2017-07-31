@@ -7,7 +7,6 @@ import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import FlatButton from 'material-ui/FlatButton'
 import signUp from '../actions/user/sign-up'
-// import Title from '../components/Title'
 
 const dialogStyle = {
   width: '400px',
@@ -57,7 +56,6 @@ export class SignUp extends PureComponent {
 
     return (
       <Paper style={ dialogStyle }>
-        <Title content="Sign Up" />
 
         <form onSubmit={this.submitForm.bind(this)}>
           <div className="input">
