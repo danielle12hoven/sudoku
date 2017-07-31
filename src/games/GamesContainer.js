@@ -9,7 +9,7 @@ render() {
     return(
       <div className="recipes wrapper">
         <main>
-        	<h1>Hello</h1>
+
         </main>
       </div>
     )}
