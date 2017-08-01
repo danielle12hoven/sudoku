@@ -5,6 +5,7 @@ const hooks = require('feathers-hooks');
 const auth = require('feathers-authentication-client');
 
 const user = {
+	name: 'Jaimy Gulliver',
   email: 'jamie@gulliver.dev',
   password: 'abcd1234'
 }
@@ -286,6 +287,7 @@ feathersClient.service('users').create(user)
 .then(() => {
   feathersClient.authenticate({
     strategy: 'local',
+    name: user.name,
     email: user.email,
     password: user.password
   })

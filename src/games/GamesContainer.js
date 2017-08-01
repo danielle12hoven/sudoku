@@ -7,9 +7,8 @@ import React, { PureComponent } from 'react'
 export default class GamesContainer extends PureComponent {
 render() {
     return(
-      <div className="recipes wrapper">
+      <div className="games wrapper">
         <main>
-
         </main>
       </div>
     )}

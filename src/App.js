@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Navigation from './components/Navigation'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import muiTheme from './styles/theme'
-import GamesContainer from './games/GamesContainer'
+// import GamesContainer from './games/GamesContainer'
 import './App.css'
 
 class App extends Component {
@@ -20,8 +20,8 @@ class App extends Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <div className="App">
           <Navigation />
-          <GamesContainer />
-            { this.props.children }
+
+          { this.props.children }
         </div>
       </MuiThemeProvider>
     )

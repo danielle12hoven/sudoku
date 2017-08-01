@@ -37,12 +37,17 @@ export class SignIn extends PureComponent {
     }
   }
 
+// homePage() {
+//     history.push('/')
+//   }
+
   submitForm(event) {
     const user = {
       email: this.refs.email.getValue(),
       password: this.refs.password.getValue()
     }
     this.props.signIn(user)
+    // this.homePage()
   }
 
   signUp() {
