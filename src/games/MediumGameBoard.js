@@ -3,26 +3,22 @@ import React, { PureComponent } from 'react'
 // import PropTypes from 'prop-types'
 // import { connect } from 'react-redux'
 import Title from '../components/Title'
-import EasyButton from '../components/EasyButton'
 import MediumButton from '../components/MediumButton'
-import HardButton from '../components/HardButton'
-import './GamesContainer.css'
+// import './EasyGameBoard.css'
 
-export class GamesContainer extends PureComponent {
+export class MediumGameBoard extends PureComponent {
 render() {
     return(
       <div className="games-wrapper">
 	    	<header>
-  	  	  <Title content="Games" />	  	  
+  	  	  <Title content="Medium Game Active" />
+
     		</header>
 
-        <main className="gameButtons">
-          <EasyButton />
-  	  	  <MediumButton />
-  	  	  <HardButton />  
+        <main>
         </main>
       </div>
     )}
 }
 
-export default GamesContainer
+export default MediumGameBoard

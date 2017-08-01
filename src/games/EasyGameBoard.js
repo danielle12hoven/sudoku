@@ -4,14 +4,14 @@ import React, { PureComponent } from 'react'
 // import { connect } from 'react-redux'
 import Title from '../components/Title'
 import EasyButton from '../components/EasyButton'
-// import './GameBoard.css'
+// import './EasyGameBoard.css'
 
-export class GameBoard extends PureComponent {
+export class EasyGameBoard extends PureComponent {
 render() {
     return(
       <div className="games-wrapper">
-	    	<header>
-  	  	  <Title content="Game Active" />
+	    	<header className="games">
+  	  	  <Title content="Easy Game Active" />
 
     		</header>
 
@@ -21,4 +21,4 @@ render() {
     )}
 }
 
-export default GameBoard
+export default EasyGameBoard

@@ -12,7 +12,9 @@ import App from './App';
 import GamesContainer from './games/GamesContainer'
 import SignIn from './users/SignIn'
 import SignUp from './users/SignUp'
-import GameBoard from './games/GameBoard'
+import EasyGameBoard from './games/EasyGameBoard'
+import MediumGameBoard from './games/MediumGameBoard'
+import HardGameBoard from './games/HardGameBoard'
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -25,7 +27,9 @@ ReactDOM.render(
         <IndexRoute component={GamesContainer} />
         <Route path="/sign-up" component={SignUp} />
         <Route path="/sign-in" component={SignIn} />
-        <Route path="/easy" component={GameBoard} />      
+        <Route path="/easy" component={EasyGameBoard} />      
+        <Route path="/medium" component={MediumGameBoard} />      
+        <Route path="/hard" component={HardGameBoard} />      
       </Route>
     </Router>
   </Provider>,

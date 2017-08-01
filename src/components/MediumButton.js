@@ -8,21 +8,19 @@ const CustomRaisedButton = (props) => (
 <RaisedButton {...props} labelStyle={{...props.labelStyle, opacity: props.disabled ? 0.3 : 1 }} />
 );
 
-class EasyButton extends PureComponent {
+class MediumButton extends PureComponent {
 
-	startEasy() {
-		history.push('/easy')
+	startMedium() {
+		history.push('/medium')
 	}
 
 render() {
 	return (
 		<div>
-			<CustomRaisedButton
-				label="Easy"
-				className="easyButton"
-				onClick={ this.startEasy }
-				content="Easy"
-				// style={{display: 'inline'}}
+			<CustomRaisedButton 
+				label="Medium"
+				className="mediumButton"
+				onClick={ this.startMedium } 
 			/>
 		</div>
 	)
@@ -32,4 +30,4 @@ render() {
 }
 
 
-export default EasyButton
+export default MediumButton
