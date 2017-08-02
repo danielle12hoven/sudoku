@@ -13,13 +13,16 @@ render() {
     return(
       <div className="games-wrapper">
 	    	<header>
-  	  	  <Title content="Games" />	  	  
+  	  	  <Title content="New Game" />	  	  
     		</header>
-
         <main className="gameButtons">
-          <EasyButton />
-  	  	  <MediumButton />
-  	  	  <HardButton />  
+          <EasyButton className="gameButtons"/>
+  	  	  <MediumButton className="gameButtons"/>
+  	  	  <HardButton className="gameButtons"/>  
+        
+        <header>
+          <Title content="Join Game" />        
+        </header>
         </main>
       </div>
     )}

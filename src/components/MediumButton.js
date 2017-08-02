@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import RaisedButton from 'material-ui/RaisedButton'
 import { history } from '../store'
+import './Buttons.css'
 
 
 const CustomRaisedButton = (props) => (
@@ -16,7 +17,7 @@ class MediumButton extends PureComponent {
 
 render() {
 	return (
-		<div>
+		<div className="mediumButton">
 			<CustomRaisedButton 
 				label="Medium"
 				className="mediumButton"
