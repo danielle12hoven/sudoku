@@ -1,11 +1,12 @@
 // src/actions/games/create.js
 
 import API from '../../api'
+import { history } from '../../store'
 import { loading, loadError, loadSuccess, authError } from '../loading'
 
 const api = new API()
 
-export default () => {
+export default (difficulty) => {
   return (dispatch) => {
     dispatch(loading(true))
 
@@ -13,21 +14,21 @@ export default () => {
 
     api.app.authenticate()
       .then(() => {
-        backend.create({})
-        // api.service('sudoku_api')
-          // .create(newGame)
+        backend.create({ difficulty })
           .then((result) => {
-            dispatch(loadSuccess())
-            dispatch(loading(false))
+            // dispatch(loadSuccess())
+            // dispatch(loading(false))
+            history.push(`/games/${result._id}`)
           })
-          .catch((error) => {
-            dispatch(loading(false))
-            dispatch(loadError(error))
-          })
-      })
-      .catch(() => {
-        dispatch(loading(false))
-        dispatch(authError())
-      })
-  }
+      //     .catch((error) => {
+      //       dispatch(loading(false))
+      //       dispatch(loadError(error))
+      //     })
+      // })
+      // .catch(() => {
+      //   dispatch(loading(false))
+      //   dispatch(authError())
+      // })
+  })
+}
 }

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import RaisedButton from 'material-ui/RaisedButton'
 import { history } from '../store'
 import './Buttons.css'

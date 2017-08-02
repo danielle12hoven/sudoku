@@ -21,7 +21,8 @@ render() {
   	  	  <HardButton className="gameButtons"/>  
         
         <header>
-          <Title content="Join Game" />        
+          <Title content="Join Game" />      
+            
         </header>
         </main>
       </div>

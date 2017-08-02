@@ -1,26 +1,32 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
-import { history } from '../store'
 import './Buttons.css'
+import createGame from '../actions/games/create'
+
 
 const CustomRaisedButton = (props) => (
 <RaisedButton {...props} labelStyle={{...props.labelStyle, opacity: props.disabled ? 0.3 : 1 }} />
 );
 
 class EasyButton extends PureComponent {
-
-	startEasy() {
-		history.push('/easy')
-	}
+ static propTypes = {
+    signedIn: PropTypes.bool,
+  }
+ 
+  handleClick(evt) {
+  	this.props.createGame('easy')
+  }
 
 render() {
+  if (!this.props.signedIn) return null
 	return (
 		<div className="easyButton">
 			<CustomRaisedButton
 				label="Easy"
 				className="easyButton"
-				onClick={ this.startEasy }
+				onClick={ this.handleClick.bind(this) }
 				content="Easy"
 			/>
 		</div>
@@ -30,5 +36,8 @@ render() {
 
 }
 
+const mapStateToProps = ({ currentUser }) => ({
+  signedIn: !!currentUser && !!currentUser._id,
+})
 
-export default EasyButton
+export default connect(mapStateToProps, {createGame})(EasyButton)
