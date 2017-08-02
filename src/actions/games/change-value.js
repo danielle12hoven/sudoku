@@ -8,9 +8,11 @@
 import API from '../../api'
 import { loading, loadError, loadSuccess, authError } from '../loading'
 
+export const CHANGE_FALUE = 'CHANGE_VALUE'
+
 const api = new API()
 
-export default () => {
+export default (gameId, cellIndex) => {
   return (dispatch) => {
     dispatch(loading(true))
 
@@ -18,10 +20,12 @@ export default () => {
 
     api.app.authenticate()
       .then(() => {
-        backend.patch(_id, cell.newValue)
+        backend.patch(gameId, { cell: cellIndex })
           .then((result) => {
-            dispatch(loadSuccess())
-            dispatch(loading(false))
+            dispatch({
+            	type: CHANGE_VALUE,
+            	payload: cellIndex
+            })
           })
           .catch((error) => {
             dispatch(loading(false))
@@ -32,5 +36,5 @@ export default () => {
         dispatch(loading(false))
         dispatch(authError())
       })
-  }
-}
+  	}
+	}

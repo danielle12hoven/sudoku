@@ -16,19 +16,18 @@ export default (difficulty) => {
       .then(() => {
         backend.create({ difficulty })
           .then((result) => {
-            // dispatch(loadSuccess())
-            // dispatch(loading(false))
+            dispatch(loadSuccess())
+            dispatch(loading(false))
             history.push(`/easy/${result._id}`)
           })
-      //     .catch((error) => {
-      //       dispatch(loading(false))
-      //       dispatch(loadError(error))
-      //     })
-      // })
-      // .catch(() => {
-      //   dispatch(loading(false))
-      //   dispatch(authError())
-      // })
-  })
-}
+          .catch((error) => {
+            dispatch(loading(false))
+            dispatch(loadError(error))
+          })
+      })
+      .catch(() => {
+        dispatch(loading(false))
+        dispatch(authError())
+      })
+  }
 }
