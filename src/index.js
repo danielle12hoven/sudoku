@@ -27,9 +27,12 @@ ReactDOM.render(
         <IndexRoute component={GamesContainer} />
         <Route path="/sign-up" component={SignUp} />
         <Route path="/sign-in" component={SignIn} />
-        <Route path="/game/:gameId" component={EasyGameBoard} />      
-        <Route path="/game/:gameId" component={MediumGameBoard} />      
-        <Route path="/game/:gameId" component={HardGameBoard} />      
+        <Route path="/game/:gameId" 
+          component={
+            EasyGameBoard, 
+            MediumGameBoard, 
+            HardGameBoard} 
+        />      
       </Route>
     </Router>
   </Provider>,

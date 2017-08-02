@@ -1,5 +1,3 @@
-// src/actions/games/create.js
-
 import API from '../../api'
 import { history } from '../../store'
 import { loading, loadError, loadSuccess, authError } from '../loading'

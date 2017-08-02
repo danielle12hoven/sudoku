@@ -22,39 +22,33 @@ export class Game extends PureComponent {
     this.unsubscribe = Store.subscribe(function() {
       self.setState(Store.getState());
     });
-
-    this.addSecond = setInterval(function() {
-      Store.dispatch({type: 'ADD_SECOND'});
-    }, 1000);
   }
 
   componentWillUnmount() {
-    clearInterval(this.addSecond);
     this.unsubscribe();
   }
 
   render() {
-    if (typeof localStorage.currentGame === 'undefined') {
-      history.replace('/');
-    }
+    // if (typeof localStorage.currentGame === 'undefined') {
+    //   history.replace('/');
+    // }
 
     return (
       <div>
-        <table className="sudoku-table">
-        </table>
+        { this.props.currentGame }
       </div>
     );
   }
 }
 
 
-function App(props) {
-  return (
-    <div>
-      {props.children}
-    </div>
-  );
-}
+// function App(props) {
+//   return (
+//     <div>
+//       {props.children}
+//     </div>
+//   );
+// }
 
 const mapStateToProps = ({ currentUser }) => ({
   signedIn: !!currentUser && !!currentUser._id,
@@ -63,7 +57,7 @@ const mapStateToProps = ({ currentUser }) => ({
 
 export default connect(mapStateToProps, {
   fetchGames,
-  App,
+  // App,
   subscribeToGamesService
 })(Game)
 
