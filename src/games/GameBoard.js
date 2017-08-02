@@ -3,11 +3,14 @@ const Store = require('./store');
 // const Sudoku = require('./sudoku');
 const Boards = require('./boards');
 import {Link} from 'react-router';
+import { history } from '../store'
+import { connect } from 'react-redux'
 import API from '../../api'
 import Cell from './Cell';
 import Controls from './Controls';
 import Difficulty from '/Difficulty';
-
+import subscribeToGamesService from '../actions/games/subscribe'
+import fetchGames from '../actions/games/fetch'
 
 const api = new API()
 const games = api.service('games')
@@ -17,6 +20,11 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = Store.getState();
+  }
+
+  componentWillMount() {
+    this.props.fetchGames()
+    this.props.subscribeToGamesService()
   }
 
   componentDidMount() {
@@ -37,8 +45,7 @@ class Game extends React.Component {
 
   render() {
     if (typeof localStorage.currentGame === 'undefined') {
-      location.hash = '/';
-      return <div></div>;
+      history.replace('/');
     }
 
     return (
@@ -63,33 +70,23 @@ class Game extends React.Component {
   }
 }
 
-class Index extends React.Component {
-  render() {
-    return (
-      <div className="index">
-        <h1>Sudoku</h1>
-        <p><Link to="new-game">Start a new game</Link></p>
-        {this.hasExistingGame()
-          ? <p>or <Link to="play">resume the existing one</Link></p>
-          : null}
-        <p>The code of this game is on&nbsp;
-        <a href="https://github.com/andreynering/sudoku" target="_blank">GitHub</a></p>
-      </div>
-    );
-  }
-
-  hasExistingGame() {
-    return (typeof localStorage.currentGame !== 'undefined');
-  }
-}
 
 function App(props) {
   return (
     <div>
       {props.children}
-      <GithubCorner />
     </div>
   );
 }
 
-module.exports = {App, DifficultyDialog, Game, Index};
+const mapStateToProps = ({ currentUser }) => ({
+  signedIn: !!currentUser && !!currentUser._id,
+})
+
+// module.exports = {App, Game, Index};
+export default connect(mapStateToProps, {
+  fetchGames,
+  App,
+  subscribeToGamesService
+})(Game)
+

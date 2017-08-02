@@ -6,6 +6,7 @@ import Title from '../components/Title'
 import EasyButton from '../components/EasyButton'
 import MediumButton from '../components/MediumButton'
 import HardButton from '../components/HardButton'
+import subscribeToGamesService from '../actions/games/subscribe'
 import './GamesContainer.css'
 
 export class GamesContainer extends PureComponent {
@@ -22,7 +23,7 @@ render() {
         
         <header>
           <Title content="Join Game" />      
-            
+
         </header>
         </main>
       </div>
