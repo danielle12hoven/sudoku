@@ -1,9 +1,9 @@
-const React = require('react');
-const Store = require('./store');
-// const Sudoku = require('./sudoku');
-const Boards = require('./boards');
+import React, { PureComponent } from 'react'
+import Store from '../store'
+// import {Link} from 'react-router';
+// import { history } from '../store'
 import {Link} from 'react-router';
-import API from '../../api'
+import API from '../api'
 
 
 const api = new API()

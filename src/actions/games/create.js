@@ -18,7 +18,7 @@ export default (difficulty) => {
           .then((result) => {
             dispatch(loadSuccess())
             dispatch(loading(false))
-            history.push(`/easy/${result._id}`)
+            history.push(`/game/${result._id}`)
           })
           .catch((error) => {
             dispatch(loading(false))

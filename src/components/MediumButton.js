@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
-import { history } from '../store'
 import './Buttons.css'
+import createGame from '../actions/games/create'
 
 
 const CustomRaisedButton = (props) => (
@@ -10,25 +11,31 @@ const CustomRaisedButton = (props) => (
 );
 
 class MediumButton extends PureComponent {
+ static propTypes = {
+    signedIn: PropTypes.bool,
+  }
 
-	startMedium() {
-		history.push('/medium')
-	}
+  handleClick(evt) {
+  	this.props.createGame('medium')
+  }
 
 render() {
+	if (!this.props.signedIn) return null
 	return (
 		<div className="mediumButton">
 			<CustomRaisedButton 
 				label="Medium"
 				className="mediumButton"
-				onClick={ this.startMedium } 
+				onClick={ this.handleClick.bind(this) }
+				content="Medium"
 			/>
 		</div>
 	)
 }
-
-
 }
 
+const mapStateToProps = ({ currentUser }) => ({
+  signedIn: !!currentUser && !!currentUser._id,
+})
 
-export default MediumButton
+export default connect(mapStateToProps, {createGame})(MediumButton)

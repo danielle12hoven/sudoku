@@ -32,8 +32,6 @@ render() {
 		</div>
 	)
 }
-
-
 }
 
 const mapStateToProps = ({ currentUser }) => ({

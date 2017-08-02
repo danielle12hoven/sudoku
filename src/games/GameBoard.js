@@ -1,22 +1,12 @@
-const React = require('react');
-const Store = require('./store');
-// const Sudoku = require('./sudoku');
-const Boards = require('./boards');
-import {Link} from 'react-router';
+import React, { PureComponent } from 'react'
+import Store from '../store'
 import { history } from '../store'
 import { connect } from 'react-redux'
-import API from '../../api'
-import Cell from './Cell';
-import Controls from './Controls';
-import Difficulty from '/Difficulty';
 import subscribeToGamesService from '../actions/games/subscribe'
 import fetchGames from '../actions/games/fetch'
 
-const api = new API()
-const games = api.service('games')
 
-
-class Game extends React.Component {
+export class Game extends PureComponent {
   constructor(props) {
     super(props);
     this.state = Store.getState();
@@ -51,20 +41,7 @@ class Game extends React.Component {
     return (
       <div>
         <table className="sudoku-table">
-          <tbody>
-            {this.state.game.cells.map(function(line, i) {
-              return (
-                <tr key={i}>
-                  {line.map(function(cell) {
-                    return <Cell cell={cell} key={cell.j} />;
-                  })}
-                </tr>
-              );
-            })}
-          </tbody>
         </table>
-
-        <Controls />
       </div>
     );
   }
@@ -83,7 +60,7 @@ const mapStateToProps = ({ currentUser }) => ({
   signedIn: !!currentUser && !!currentUser._id,
 })
 
-// module.exports = {App, Game, Index};
+
 export default connect(mapStateToProps, {
   fetchGames,
   App,
