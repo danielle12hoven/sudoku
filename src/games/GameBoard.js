@@ -28,13 +28,13 @@ export class Game extends PureComponent {
     this.unsubscribe();
   }
 
-  // render() {
-  //       console.log(this.state.games)
+
+
  render() {
-  console.log(this.state.games[0])
+  console.log(JSON.stringify(Math.random(this.state.games)))
     var games = this.state.games.map(function(result, i){
       return (
-        <div key={i}> {(result.cells[0])} </div>
+        <div key={i}> {result.cells[i]} </div>
       )
     });
       return (
