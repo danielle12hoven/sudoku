@@ -28,27 +28,23 @@ export class Game extends PureComponent {
     this.unsubscribe();
   }
 
-  render() {
-    // if (typeof localStorage.currentGame === 'undefined') {
-    //   history.replace('/');
-    // }
 
-    return (
-      <div>
-        { this.props.currentGame }
-      </div>
-    );
+
+ render() {
+  console.log(JSON.stringify(Math.random(this.state.games)))
+    var games = this.state.games.map(function(result, i){
+      return (
+        <div key={i}> {result.cells[i]} </div>
+      )
+    });
+      return (
+        <div >
+          {games}
+        </div>
+      );
   }
 }
 
-
-// function App(props) {
-//   return (
-//     <div>
-//       {props.children}
-//     </div>
-//   );
-// }
 
 const mapStateToProps = ({ currentUser }) => ({
   signedIn: !!currentUser && !!currentUser._id,
@@ -57,7 +53,6 @@ const mapStateToProps = ({ currentUser }) => ({
 
 export default connect(mapStateToProps, {
   fetchGames,
-  // App,
   subscribeToGamesService
 })(Game)
 
