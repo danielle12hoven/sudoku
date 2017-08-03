@@ -1,6 +1,6 @@
 // src/api/index.js
 
-import client from './client'
+import client, { FEATHERS_TOKEN_KEY } from './client'
 
 // API Client
 // -----------------------------------------------------------------------------
@@ -32,6 +32,12 @@ class API {
 
   service(serviceName) {
     return this.app.service(serviceName)
+  }
+
+  doAuthenticate() {
+    return this.app.authenticate({
+      storageKey: FEATHERS_TOKEN_KEY,
+    })
   }
 
   authenticate({ email, password }) {

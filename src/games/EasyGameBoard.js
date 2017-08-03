@@ -6,15 +6,18 @@ import GameBoard from './GameBoard'
 
 
 export class EasyGameBoard extends PureComponent {
-render() {
+  render() {
+    const { gameId } = this.props.params
+
     return(
       <div className="games-wrapper">
-	    	<header className="games">
+      	<header className="games">
   	  	  <Title content="Easy Game Active" />
-  	  	  <GameBoard />
+  	  	  <GameBoard gameId={gameId} />
     		</header>
       </div>
-    )}
+    )
+  }
 }
 
 export default EasyGameBoard

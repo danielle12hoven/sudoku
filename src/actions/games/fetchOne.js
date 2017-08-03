@@ -7,23 +7,23 @@
 import API from '../../api'
 import { loading, loadError, loadSuccess } from '../loading'
 
-export const FETCHED_GAMES = 'FETCHED_GAMES'
+export const FETCHED_ONE_GAME = 'FETCHED_ONE_GAME'
 
 const api = new API()
 
-export default () => {
+export default (gameId) => {
   return (dispatch) => {
     dispatch(loading(true))
 
     api.doAuthenticate()
       .then(() => {
-        api.service('games').find()
+        api.service('games').get(gameId)
           .then((result) => {
             dispatch(loadSuccess())
 
             dispatch({
-              type: FETCHED_GAMES,
-              payload: result.data
+              type: FETCHED_ONE_GAME,
+              payload: result
             })
 
             dispatch(loading(false))
