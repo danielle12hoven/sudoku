@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import Store from '../store'
-import { history } from '../store'
+// import { history } from '../store'
 import { connect } from 'react-redux'
 import subscribeToGamesService from '../actions/games/subscribe'
 import fetchGames from '../actions/games/fetch'

@@ -28,10 +28,7 @@ ReactDOM.render(
         <Route path="/sign-up" component={SignUp} />
         <Route path="/sign-in" component={SignIn} />
         <Route path="/game/:gameId" 
-          component={
-            EasyGameBoard, 
-            MediumGameBoard, 
-            HardGameBoard} 
+          component={ EasyGameBoard, MediumGameBoard, HardGameBoard } 
         />      
       </Route>
     </Router>
