@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import Navigation from './components/Navigation'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import muiTheme from './styles/theme'
-// import GamesContainer from './games/GamesContainer'
 import './App.css'
 
 class App extends Component {
