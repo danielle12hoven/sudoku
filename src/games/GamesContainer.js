@@ -5,7 +5,10 @@ import MediumButton from '../components/MediumButton'
 import HardButton from '../components/HardButton'
 // import subscribeToGamesService from '../actions/games/subscribe'
 import './GamesContainer.css'
+
 import Lobby from '../components/Lobby.js'
+
+
 
 export class GamesContainer extends PureComponent {
 
@@ -18,7 +21,17 @@ render() {
         <main className="gameButtons">
           <EasyButton className="gameButtons"/>
   	  	  <MediumButton className="gameButtons"/>
-  	  	  <HardButton className="gameButtons"/>
+
+
+
+  	  	  <HardButton className="gameButtons"/>  
+        
+        <header>
+          <Title content="Join Game" />      
+        </header>
+
+
+
 
         </main>
         <header>

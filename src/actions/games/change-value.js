@@ -8,7 +8,7 @@
 import API from '../../api'
 import { loading, loadError, loadSuccess, authError } from '../loading'
 
-export const CHANGE_FALUE = 'CHANGE_VALUE'
+export const CHANGE_VALUE = 'CHANGE_VALUE'
 
 const api = new API()
 
@@ -16,7 +16,7 @@ export default (gameId, cellIndex) => {
   return (dispatch) => {
     dispatch(loading(true))
 
-    const backend = api.service('games')
+    const backend = api.service('sudoku')
 
     api.app.authenticate()
       .then(() => {

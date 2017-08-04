@@ -3,6 +3,7 @@
 // import { connect } from 'react-redux'
 // import {Link} from 'react-router';
 // import API from '../../api'
+// import cell from './Cell'
 
 
 // const api = new API()
