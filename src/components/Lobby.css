@@ -1,5 +1,22 @@
-.Lobby .paper {
-  padding: 20px;
-  margin: 20px 0;
-  width: 100%;
+.Lobby  {
+	margin-top: 100px;
+	margin-right: 40px;
+}
+
+.Lobby-title {
+	margin-right: -40px;
+}
+
+.join-menu {
+	text-align: left;
+	padding-left: 200px;
+}
+
+
+.Lobby div {
+		margin-left: 30px;
+}
+
+.svg-icon {
+	margin-right: 300%;
 }

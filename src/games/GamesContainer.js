@@ -21,24 +21,10 @@ render() {
         <main className="gameButtons">
           <EasyButton className="gameButtons"/>
   	  	  <MediumButton className="gameButtons"/>
-
-
-
   	  	  <HardButton className="gameButtons"/>  
-        
-        <header>
-          <Title content="Join Game" />      
-        </header>
-
-
-
-
         </main>
-        <header>
-          <Title content="Join Game" />
-        </header>
-        <main>
         <Lobby />
+        <main>
       </main>
       </div>
     )}

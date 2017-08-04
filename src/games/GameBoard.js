@@ -32,7 +32,6 @@ export class Game extends PureComponent {
                   <input 
                     className="cell" 
                     key={cellIndex}
-                    onClick={this.onClick}
                     onChange={this.onChange}
                     value={cell} />
                )

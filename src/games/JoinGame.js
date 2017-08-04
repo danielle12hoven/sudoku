@@ -2,6 +2,7 @@
 import React, { PureComponent } from 'react'
 import Title from '../components/Title'
 import GameBoard from './GameBoard'
+import './joinGame.css'
 
 
 
@@ -11,12 +12,9 @@ export class JoinGame extends PureComponent {
     const { gameId } = this.props.params
 
     return(
-      <div className="games-wrapper">
-      	<header className="games">
-
-  	  	  <Title content="Join game" />
-
-
+      <div className="join-wrapper">
+      	<header className="join-game">
+  	  	  <Title content="You joined a game!" />
   	  	  <GameBoard gameId={gameId} />
     		</header>
       </div>

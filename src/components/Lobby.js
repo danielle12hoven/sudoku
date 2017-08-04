@@ -42,6 +42,7 @@ class Lobby extends PureComponent {
 
     return (
       <MenuItem
+        className="join-menu"
         key={index}
         onClick={this.goToGame(game._Id).bind(this)}
         rightIcon={<ActionIcon />}
@@ -54,12 +55,8 @@ class Lobby extends PureComponent {
   render() {
     return (
       <div className="Lobby">
-        <h1>Lobby!</h1>
-        <Paper className="paper">
-          <Menu>
-            { this.props.games.map(this.renderGame.bind(this))}
-          </Menu>
-        </Paper>
+        <h1 className="Lobby-title">Lobby!</h1>
+          { this.props.games.map(this.renderGame.bind(this))}
       </div>
     )
   }
