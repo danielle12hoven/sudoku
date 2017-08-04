@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import Store from '../store'
+// import Store from '../store'
 // import { history } from '../store'
 import { connect } from 'react-redux'
 import subscribeToGamesService from '../actions/games/subscribe'
@@ -16,6 +16,7 @@ export class Game extends PureComponent {
 
  render() {
    const { game } = this.props
+  const cell = this.props.cell;
 
    if (!game) return null
 
@@ -26,8 +27,14 @@ export class Game extends PureComponent {
            <div key={rowIndex} className="row">
              {row.map((cell, cellIndex) => {
                if (cell instanceof Object) return null
+                console.log(cell)
                return(
-                 <div className="cell" key={cellIndex}>{ cell }</div>
+                  <input 
+                    className="cell" 
+                    key={cellIndex}
+                    onClick={this.onClick}
+                    onChange={this.onChange}
+                    value={cell} />
                )
              })}
            </div>
