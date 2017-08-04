@@ -7,11 +7,13 @@ import GameBoard from './GameBoard'
 
 export class HardGameBoard extends PureComponent {
 render() {
+	  const { gameId } = this.props.params
+
     return(
       <div className="games-wrapper">
 	    	<header className="games">
   	  	  <Title content="Hard Game Active" />
-  	  	  <GameBoard />
+  	  	  <GameBoard gameId={gameId} />
     		</header>
       </div>
     )}

@@ -6,12 +6,14 @@ import GameBoard from './GameBoard'
 
 
 export class MediumGameBoard extends PureComponent {
-render() {
+  render() {
+  	const { gameId } = this.props.params
+  	
     return(
       <div className="games-wrapper">
 	    	<header>
   	  	  <Title content="Medium Game Active" />
-  	  	  <GameBoard />
+  	  	  <GameBoard gameId={gameId} />
     		</header>
       </div>
     )}
